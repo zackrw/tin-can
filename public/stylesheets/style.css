@@ -3,7 +3,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 300;
-  background-color: #fafafa;
+  background-color: #fcfcfc;
   -webkit-backface-visibility: hidden;
 }
 h1,
@@ -12,6 +12,7 @@ h3,
 h4,
 h5,
 h6 {
+  margin-top: 0;
   font-family: 'Roboto Slab', cursive;
   font-weight: 400;
 }
@@ -101,7 +102,7 @@ li {
   background-color: red-color;
 }
 .white-text {
-  color: #fafafa;
+  color: #fcfcfc;
 }
 .col {
   width: 100px;
@@ -120,26 +121,87 @@ li {
   font-weight: 100;
   cursor: pointer;
 }
-.header .logo-container {
-  width: 285px;
-  margin-top: 20px;
+.bg {
+  background-image: url("/images/blur.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
-.header .logo-text {
+.logo-container {
+  background-color: rgba(0,0,0,0.8);
+  position: absolute;
+  width: 235px;
+  top: 20px;
+  right: 20px;
+  padding: 5px;
+  color: #fcfcfc;
+  z-index: 2;
+}
+.logo-text {
+  margin-top: 14px;
   margin-left: 15px;
 }
-.main {
-  width: 1000px;
-  margin: 0 auto;
+.main .friends-container {
+  position: absolute;
+  color: #fcfcfc;
+  width: 200px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+}
+.main .friends-heading {
+  margin: 15px 0 15px 0;
 }
 .main .friends {
-  width: 200px;
+  border-top: 1px solid rgba(255,255,255,0.5);
+}
+.main .friend {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+.main .friend:hover {
+  background-color: rgba(255,255,255,0.15);
+  cursor: pointer;
+}
+.main .chat-container {
+  position: absolute;
+  left: 200px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.main .video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  -webkit-transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+.main .chat-read {
+  width: 600px;
+  height: 200px;
   -moz-box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
   -o-box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
   -ms-box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
   box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
 }
-.main .chat-container {
+.main .chat-write {
   width: 600px;
   -moz-box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
@@ -148,7 +210,7 @@ li {
   box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
 }
 .main .buttons {
-  width: 200px;
+  width: 180px;
   -moz-box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
   -o-box-shadow: 0 0 0 2px rgba(0,0,0,0.1);

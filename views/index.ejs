@@ -4,26 +4,29 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <%= include partials/fonts.ejs %>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script src="/javascripts/video.js" type="text/javascript"></script>
+    <script src="/javascripts/main.js" type="text/javascript"></script>
   </head>
   <body>
-      <div class="header">
-          <div class="logo-container right">
-              <img class="logo-image left" src="/images/tin_can.png" alt="logo"
-                   width="100">
-              <h1 class="logo-text left">Tin Can</h1>
-          </div>
-          <div class="clearfix"></div>
+      <div class="bg"></div>
+      <div class="logo-container right">
+          <img class="logo-image left" src="/images/tin_can.png" alt="logo"
+               width="100">
+          <h1 class="logo-text left">Tin Can</h1>
       </div>
-      <div class="main">
-          <div class="friends left">
-              hello
+      <div class="main centered">
+          <div class="friends-container">
+              <h2 class="friends-heading text-centered">Contacts</h2>
+              <ul class="friends">
+                  <li class="friend text-centered">Henry Davidge</li>
+              </ul>
           </div>
-          <div class="chat-container left">
-              hello
-              <div class="video"></div>
+          <div class="chat-container">
+              <video class="video"></video>
               <div class="chat">
                   <div class="chat-read"></div>
-                  <!--input type="text" class="chat-write"-->
+                  <input type="text" class="chat-write">
               </div>
           </div>
           <div class="buttons left">

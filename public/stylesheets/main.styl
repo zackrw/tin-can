@@ -1,21 +1,72 @@
-.header
-  .logo-container
-    width: 285px
-    margin-top: 20px
-  .logo-text
-    margin-left: 15px
+
+.bg
+  background-image: url(/images/blur.png)
+  background-repeat: no-repeat
+  background-position: center
+  background-size: 100% 100%
+  position: fixed
+  z-index: -1
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+
+.logo-container
+  background-color: rgba(0, 0, 0, 0.5)
+  position: absolute
+  width: 235px
+  top: 20px
+  right: 20px
+  padding: 5px
+  color: white-color
+  z-index: 2
+.logo-text
+  margin-top: 14px
+  margin-left: 15px
 
 .main
-  width: 1000px
-  margin: 0 auto
-  .friends
+  // width: 1000px
+  .friends-container
+    position: absolute
+    color: white-color
     width: 200px
-    shadow-border()
+    top: 0
+    left: 0
+    bottom: 0
+    height: 100%
+    background-color: rgba(0, 0, 0, .8)
+  .friends-heading
+    margin: 15px 0 15px 0
+  .friends
+    border-top: 1px solid rgba(255, 255, 255, 0.5)
+  .friend
+    padding: 10px 0
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5)
+  .friend:hover
+    background-color: rgba(255, 255, 255, 0.15)
+    cursor: pointer
   .chat-container
+    position: absolute
+    left: 200px
+    top: 0
+    bottom: 0
+    right: 0
+  .video
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+    width: 100%
+    z-index: 1
+    apply-transform(scaleX(-1))
+  .chat-read
+    width: 600px
+    height: 200px
+    shadow-border()
+  .chat-write
     width: 600px
     shadow-border()
   .buttons
-    width: 200px
+    width: 180px
     shadow-border()
-
-

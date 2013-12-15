@@ -40,12 +40,20 @@ text-shadow(x, y, blur, color)
   text-shadow x y blur color
 
 bg-transition(color, length)
-   background-color: color
-   -webkit-transition: background-color length linear
-   -moz-transition: background-color length linear
-   -o-transition: background-color length linear
-   -ms-transition: background-color length linear
-   transition: background-color length linear
+  background-color: color
+  -webkit-transition: background-color length linear
+  -moz-transition: background-color length linear
+  -o-transition: background-color length linear
+  -ms-transition: background-color length linear
+  transition: background-color length linear
+
+apply-transform(arg)
+  -webkit-transform: arg
+  -moz-transform: arg
+  -o-transform: arg
+  -ms-transform: arg
+  transform: arg
+
 
 animation(name, duration, iteration-count, function)
   -webkit-animation-name: name
