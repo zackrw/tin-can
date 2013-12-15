@@ -3,9 +3,34 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <%= include partials/fonts.ejs %>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+      <div class="header">
+          <div class="logo-container right">
+              <img class="logo-image left" src="/images/tin_can.png" alt="logo"
+                   width="100">
+              <h1 class="logo-text left">Tin Can</h1>
+          </div>
+          <div class="clearfix"></div>
+      </div>
+      <div class="main">
+          <div class="friends left">
+              hello
+          </div>
+          <div class="chat-container left">
+              hello
+              <div class="video"></div>
+              <div class="chat">
+                  <div class="chat-read"></div>
+                  <!--input type="text" class="chat-write"-->
+              </div>
+          </div>
+          <div class="buttons left">
+              hello
+          </div>
+          <div class="clearfix"></div>
+      </div>
+      <div class="footer"></div>
   </body>
 </html>
