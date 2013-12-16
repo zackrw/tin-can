@@ -1,6 +1,16 @@
 
 var App = {};
 
+function hash(s) {
+	var h = 0, c;
+	for (var i = 0; i < s.length; i++) {
+		c = s.charCodeAt(i);
+		h = ((h << 5) + h) + c;
+	}
+	h |= 0;
+	return h.toString();
+}
+
 /*
  * Change this and call App.populate whenever a new friend comes in.
  */
@@ -77,12 +87,17 @@ $(function() {
     var i, li, conversation;
     for (i = 0; i < App.conversations.length; i++) {
       conversation = App.conversations[i];
-      li = friendTemplate.clone().removeClass('template').
-                                  text(conversation.name).
-                                  attr('data-id', conversation.id);
-      friends.append(li);
+			App.showConvo(conversation);
     }
   };
+
+	App.showConvo = function(conversation) {
+		var li = friendTemplate.clone().removeClass('template').
+																text(conversation.name).
+																attr('data-id', conversation.id);
+		friends.append(li);
+	}
+
 
   App.findConversation = function(id) {
     var i;
@@ -116,12 +131,13 @@ $(function() {
     $('.chats').animate({ scrollTop: $('.chats').height() }, 300);
   };
 
-  App.addChat = function(text) {
-    var conversation = App.findConversation(chatContainer.attr('data-id'));
+  App.addChat = function(text, is_mine, id) {
+		var id = arguments.length < 3 ? chatContainer.attr('data-id') : id;
+    var conversation = App.findConversation(id);
     var chat = {
       text: text,
       time: new Date,
-      mine: true
+      mine: is_mine
     };
     conversation.chats.push(chat);
     App.makeChat(chat);
@@ -136,11 +152,31 @@ $(function() {
 
   chatWrite.keypress(function(e) {
     if (e.which === 13 && $(this).val() !== '') {
-      App.addChat($(this).val());
+      App.addChat($(this).val(), true);
+			var id = chatContainer.attr('data-id');
+			var name = App.findConversation(id).name;
+			console.log(chatContainer);
+			console.log(name);
+			sendChatMessage($(this).val(), name);
       $(this).val('');
     }
   });
 
+	App.recMsg = function(msg) {
+		var hashed = hash(msg.from);
+		App.addChat(msg.data, false, hashed);
+	}
+
+	App.addContact = function(n) {
+		var hashed = hash(n);
+		var c = {
+			name: n,
+			id: hashed,
+			chats: []
+		};
+		App.conversations.push(c);
+		App.showConvo(c);
+	}
 
 });
 

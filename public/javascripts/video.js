@@ -13,6 +13,7 @@ $(function() {
 
   if (navigator[gumTypes[gumIndex]]){
     navigator[gumTypes[gumIndex]]({ video: true }, function(localMediaStream) {
+			window.local_stream = localMediaStream;
       var video = $('.video')[0];
       video.src = window.URL.createObjectURL(localMediaStream);
       video.play();
