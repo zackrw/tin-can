@@ -4,6 +4,8 @@ body {
   font-size: 14px;
   font-weight: 300;
   background-color: #fcfcfc;
+  background-image: url("/images/city.jpg");
+  background-size: 100%;
   -webkit-backface-visibility: hidden;
 }
 h1,
@@ -170,7 +172,7 @@ li {
 }
 .video-container .video {
   position: absolute;
-  top: 0;
+  top: -100px;
   bottom: 0;
   right: 0;
   left: 0;

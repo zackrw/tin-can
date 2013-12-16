@@ -4,7 +4,8 @@ messages to remote peers works, and, as far as I can tell, video chat works. We 
 video chat tomorrow, though - I am not really convinced until it works with a truly remote peer.
 
 ## Basic API/internals description
-I am very tired so this section will be a bit scattered. There are four types of messages: req_intro, offer, answer, and text. These should be
+I am very tired so this section will be a bit scattered.
+There are four types of messages: req_intro, offer, answer, and text. These should be
 self-explanatory. Each peer maintains a map of names -> connections. I intentionally decided
 to use user-defined names rather than random strings to identify connections bc I feel its
 more anonymity-centric and reduces overhead. And if there are collisions, so be it. 
@@ -19,7 +20,7 @@ vulnerability.
 - Introduction UI
 - Make the command UI better. Unfortunately we need to have it, but it does not need to be so ugly. I was thinking maybe put it at the bottom of the friends bar, with a dark grey semi-transparent background, but w/e.
 	* Sidenote: To manually add a contact, type-in {"type":"req_intro", "from": <contact name to
-add>"}, then just follow the copy and paste-sequence. 
+add>"}, then just follow the copy and paste-sequence.
 - Need someway to set name
 - The UI looks nice when there is video, but without it looks a little weird. Some osx style nature
 	screen savers when there is no video would be awesome.
