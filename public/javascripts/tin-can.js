@@ -109,7 +109,7 @@ function handleIntro(msg, print) {
 	}, function() {console.warn("fuuuuuu")});
 	console.log(o);
 }
-	
+
 
 function handleOffer(msg, print) {
 	if (!(msg.from in peers)) {
@@ -120,7 +120,7 @@ function handleOffer(msg, print) {
 	}
 	var offer = new RTCSessionDescription(msg.data);
 	peers[msg.from].conn.setRemoteDescription(offer);
-		
+
 	var out_msg = {
 		'to': msg.from,
 		'from': name,

@@ -1,10 +1,8 @@
-@import "normalize.css";
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 300;
   background-color: #fcfcfc;
-  background-image: url("/images/city.jpg");
   background-size: 100%;
   -webkit-backface-visibility: hidden;
 }
@@ -55,18 +53,6 @@ li {
   -ms-filter: blur(4px);
   -o-filter: blur(4px);
   filter: blur(4px);
-}
-.bg {
-  background-image: url("/images/blur.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 100%;
-  position: fixed;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
 }
 .text-centered {
   text-align: center;
@@ -161,6 +147,9 @@ li {
 .friends-container .friend:hover {
   background-color: rgba(255,255,255,0.15);
   cursor: pointer;
+}
+.friends-container .friend.selected {
+  background-color: rgba(255,255,255,0.15);
 }
 .video-container {
   position: absolute;
