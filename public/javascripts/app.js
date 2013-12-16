@@ -80,6 +80,8 @@ $(function() {
     var conversationId = $(this).attr('data-id');
     if (conversationId !== chatContainer.attr('data-id')) {
       App.selectConversation(conversationId);
+      $('.friend').removeClass('selected');
+      $(this).addClass('selected');
     }
   });
 
@@ -148,7 +150,9 @@ $(function() {
   // populate conversations.
   App.populate();
   // initialize to the first conversation.
-  App.selectConversation(App.conversations[0].id);
+  if (App.conversations.length) {
+    $($('.friend')[0]).click();
+  }
 
   chatWrite.keypress(function(e) {
     if (e.which === 13 && $(this).val() !== '') {

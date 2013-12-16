@@ -144,7 +144,7 @@ function handleIntro(msg, print) {
 		send(out_msg, msg.last_hop);
 	}, function() {console.warn("fuuuuuu")}, mc);
 }
-	
+
 
 function handleOffer(msg, print) {
 	if (!(msg.from in peers)) {
