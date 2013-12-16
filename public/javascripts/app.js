@@ -131,6 +131,15 @@ $(function() {
     }
     App.selectedConversation = id;
     $('.chats').animate({ scrollTop: $('.chats').height() }, 300);
+		var video = $('.video')[0];
+		video.pause();
+		if ('video' in conversation) {
+			$('.video').show();
+			attachMediaStream(video, conversation.video);
+			video.play();
+		} else {
+			$('.video').hide();
+		}
   };
 
   App.addChat = function(text, is_mine, id) {
@@ -169,7 +178,7 @@ $(function() {
 	App.recMsg = function(msg) {
 		var hashed = hash(msg.from);
 		App.addChat(msg.data, false, hashed);
-	}
+	};
 
 	App.addContact = function(n) {
 		var hashed = hash(n);
@@ -182,6 +191,11 @@ $(function() {
 		App.showConvo(c);
 	}
 
+	App.addVideoToConvo = function(stream, name) {
+		var convo = App.findConversation(hash(name));
+		convo.video = stream;
+		App.selectConversation(convo);
+	};
 });
 
 

@@ -36,8 +36,7 @@ function handleDC(e) {
 
 function handleStream(e) {
 	console.log("Received media stream: ",  e);
-	var video = $('.video')[0];
-	attachMediaStream(video, e.stream);
+	App.addVideoToConvo(e.stream, e.target.remote);
 }
 
 function handleIceCandidate(e) {
@@ -247,5 +246,3 @@ function sendIntro(offerer, answerer) {
 	};
 	send(out_msg, offerer);
 }
-
-
