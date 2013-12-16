@@ -166,6 +166,7 @@ li {
   top: 0;
   bottom: 0;
   right: 0;
+  height: 100%;
 }
 .video-container .video {
   position: absolute;
@@ -183,6 +184,7 @@ li {
 }
 .chat-container {
   position: absolute;
+  padding: 10px;
   z-index: 2;
   left: 200px;
   bottom: 0;
@@ -191,12 +193,36 @@ li {
   color: #fcfcfc;
   background-color: rgba(0,0,0,0.5);
 }
+.chat-container .chats {
+  height: 300px;
+  overflow: scroll;
+}
 .chat-container .chat-read {
   width: 300px;
   height: 200px;
 }
 .chat-container .chat-write {
-  width: 300px;
+  width: 280px;
+  position: absolute;
+  border: 1px solid #eaeaea;
+  padding: 5px;
+  bottom: 10px;
+}
+.chat-container .chat {
+  width: 150px;
+  padding: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: rgba(255,255,255,0.3);
+  clear: both;
+}
+.chat-container .mine {
+  float: left;
+  background-color: rgba(0,155,255,0.45);
+}
+.chat-container .theirs {
+  float: right;
+  background-color: rgba(0,255,55,0.45);
 }
 .buttons {
   width: 180px;
