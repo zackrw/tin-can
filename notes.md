@@ -20,9 +20,14 @@ vulnerability.
 - Make the command UI better. Unfortunately we need to have it, but it does not need to be so ugly. I was thinking maybe put it at the bottom of the friends bar, with a dark grey semi-transparent background, but w/e.
 	* Sidenote: To manually add a contact, type-in {"type":"req_intro", "from": <contact name to
 add>"}, then just follow the copy and paste-sequence. 
-- Need someway to set name
-- The UI looks nice when there is video, but without it looks a little weird. Some osx style nature
-	screen savers when there is no video would be awesome.
+- Need some way to set name
+- A button to toggle video on/off
+	* Today I will try to get multiplexed video streams working, so that if you switch chats the
+		video will change automatically. Might be too bandwidth intensive though.
+- An FB-chat style feature that provides a notification (lighter color background maybe) and
+	moves the contact to the top of the list upon message receipt would be cool. It should not
+	autofocus the convo though.
+- The UI looks nice when there is video, but without it looks a little weird. Some osx style nature screen savers when there is no video would be awesome.
 
 ## One note on the demo
 Unfortunately we do need to use a stun server - as far as I can tell there is no other way.
