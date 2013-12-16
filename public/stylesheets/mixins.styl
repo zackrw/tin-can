@@ -1,0 +1,78 @@
+apply-blur(n)
+  -webkit-filter blur(n)
+  -moz-filter blur(n)
+  -ms-filter blur(n)
+  -o-filter blur(n)
+  filter blur(n)
+
+box-sizing(n)
+  -webkit-box-sizing n
+  -moz-box-sizing n
+  -ms-box-sizing n
+  -o-box-sizing n
+  box-sizing n
+
+border-radius(n)
+  -moz-border-radius n
+  -webkit-border-radius n
+  -ms-border-radius n
+  -o-border-radius n
+  border-radius n
+  -moz-background-clip padding;
+  -webkit-background-clip padding-box;
+  background-clip padding-box;
+
+box-shadow(x, y, blur, stretch, color)
+  -moz-box-shadow x y blur stretch color
+  -webkit-box-shadow x y blur stretch color
+  -o-box-shadow x y blur stretch color
+  -ms-box-shadow x y blur stretch color
+  box-shadow x y blur stretch color
+
+shadow-border()
+  box-shadow(0, 0, 0, 2px, rgba(0, 0, 0, 0.1))
+
+text-shadow(x, y, blur, color)
+  -moz-text-shadow x y blur color
+  -webkit-text-shadow x y blur color
+  -o-text-shadow x y blur color
+  -ms-text-shadow x y blur color
+  text-shadow x y blur color
+
+bg-transition(color, length)
+  background-color: color
+  -webkit-transition: background-color length linear
+  -moz-transition: background-color length linear
+  -o-transition: background-color length linear
+  -ms-transition: background-color length linear
+  transition: background-color length linear
+
+apply-transform(arg)
+  -webkit-transform: arg
+  -moz-transform: arg
+  -o-transform: arg
+  -ms-transform: arg
+  transform: arg
+
+
+animation(name, duration, iteration-count, function)
+  -webkit-animation-name: name
+  -webkit-animation-duration: duration
+  -webkit-animation-iteration-count: iteration-count
+  -webkit-animation-timing-function: function
+  -moz-animation-name: name
+  -moz-animation-duration: duration
+  -moz-animation-iteration-count: iteration-count
+  -moz-animation-timing-function: function
+  -o-animation-name: name
+  -o-animation-duration: duration
+  -o-animation-iteration-count: iteration-count
+  -o-animation-timing-function: function
+  -ms-animation-name: name
+  -ms-animation-duration: duration
+  -ms-animation-iteration-count: iteration-count
+  -ms-animation-timing-function: function
+  animation-name: name
+  animation-duration: duration
+  animation-iteration-count: iteration-count
+  animation-timing-function: function

@@ -1,0 +1,234 @@
+@import "normalize.css";
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  background-color: #fcfcfc;
+  -webkit-backface-visibility: hidden;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-family: 'Roboto Slab', cursive;
+  font-weight: 400;
+}
+a {
+  color: #00b7ff;
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: underline;
+}
+div,
+ul,
+li,
+table,
+thead,
+tbody,
+td,
+th,
+input,
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.blurred {
+  -webkit-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -ms-filter: blur(4px);
+  -o-filter: blur(4px);
+  filter: blur(4px);
+}
+.bg {
+  background-image: url("/images/blur.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.text-centered {
+  text-align: center;
+}
+.centered {
+  margin: auto;
+}
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
+.clearfix {
+  clear: both;
+}
+.small-text {
+  font-size: 12px;
+}
+.medium-text {
+  font-size: 14px;
+}
+.large-text {
+  font-size: 24px;
+}
+.huge-text {
+  font-size: 36px;
+}
+.logo-font {
+  font-family: 'Roboto Slab', cursive;
+}
+.thin {
+  font-weight: 300;
+}
+.red-bg {
+  background-color: red-color;
+}
+.white-text {
+  color: #fcfcfc;
+}
+.col {
+  width: 100px;
+  float: left;
+}
+.row {
+  height: 30px;
+}
+.button {
+  width: 300px;
+  height: 50px;
+  text-align: center;
+  padding-top: 12px;
+  color: #eaeaea;
+  font-size: 18px;
+  font-weight: 100;
+  cursor: pointer;
+}
+.logo-container {
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  width: 235px;
+  top: 20px;
+  right: 20px;
+  padding: 5px;
+  color: #fcfcfc;
+  z-index: 2;
+}
+.logo-text {
+  margin-top: 14px;
+  margin-left: 15px;
+}
+.friends-container {
+  position: absolute;
+  color: #fcfcfc;
+  width: 200px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+}
+.friends-container .friends-heading {
+  margin: 15px 0 15px 0;
+}
+.friends-container .friends {
+  border-top: 1px solid rgba(255,255,255,0.5);
+}
+.friends-container .friend {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+.friends-container .friend:hover {
+  background-color: rgba(255,255,255,0.15);
+  cursor: pointer;
+}
+.video-container {
+  position: absolute;
+  left: 200px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+}
+.video-container .video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  -webkit-transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+.chat-container {
+  position: absolute;
+  padding: 10px;
+  z-index: 2;
+  left: 200px;
+  bottom: 0;
+  width: 300px;
+  height: 400px;
+  color: #fcfcfc;
+  background-color: rgba(0,0,0,0.5);
+}
+.chat-container .chats {
+  height: 300px;
+  overflow: scroll;
+}
+.chat-container .chat-read {
+  width: 300px;
+  height: 200px;
+}
+.chat-container .chat-write {
+  width: 280px;
+  position: absolute;
+  border: 1px solid #eaeaea;
+  padding: 5px;
+  bottom: 10px;
+}
+.chat-container .chat {
+  width: 150px;
+  padding: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: rgba(255,255,255,0.3);
+  clear: both;
+}
+.chat-container .mine {
+  float: left;
+  background-color: rgba(0,155,255,0.45);
+}
+.chat-container .theirs {
+  float: right;
+  background-color: rgba(0,255,55,0.45);
+}
+.buttons {
+  width: 180px;
+  -moz-box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+  -ms-box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+}

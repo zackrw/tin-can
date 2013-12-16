@@ -1,0 +1,88 @@
+
+.logo-container
+  background-color: rgba(0, 0, 0, 0.5)
+  position: absolute
+  width: 235px
+  top: 20px
+  right: 20px
+  padding: 5px
+  color: white-color
+  z-index: 2
+.logo-text
+  margin-top: 14px
+  margin-left: 15px
+
+.friends-container
+  position: absolute
+  color: white-color
+  width: 200px
+  top: 0
+  left: 0
+  bottom: 0
+  height: 100%
+  background-color: rgba(0, 0, 0, .8)
+  .friends-heading
+    margin: 15px 0 15px 0
+  .friends
+    border-top: 1px solid rgba(255, 255, 255, 0.5)
+  .friend
+    padding: 10px 0
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5)
+  .friend:hover
+    background-color: rgba(255, 255, 255, 0.15)
+    cursor: pointer
+
+.video-container
+  position: absolute
+  left: 200px
+  top: 0
+  bottom: 0
+  right: 0
+  height: 100%
+  .video
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+    width: 100%
+    z-index: 1
+    apply-transform(scaleX(-1))
+.chat-container
+  position: absolute
+  padding: 10px
+  z-index: 2
+  left: 200px
+  bottom: 0
+  width: 300px
+  height: 400px
+  color: white-color
+  background-color: rgba(0, 0, 0, .5)
+  .chats
+    height: 300px
+    overflow: scroll
+  .chat-read
+    width: 300px
+    height: 200px
+  .chat-write
+    width: 280px
+    position: absolute
+    border: 1px solid #EAEAEA
+    padding: 5px
+    bottom: 10px
+  .chat
+    width: 150px
+    padding: 5px
+    margin-bottom: 10px
+    text-align: center
+    background-color: rgba(255, 255, 255, 0.30)
+    clear: both
+  .mine
+    float: left
+    background-color: rgba(0, 155, 255, 0.45)
+  .theirs
+    float: right
+    background-color: rgba(0, 255, 55, 0.45)
+.buttons
+  width: 180px
+  shadow-border()
