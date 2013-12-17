@@ -45,7 +45,7 @@ $(function() {
   });
   enterOfferButton.click(function() {
     overlay.hide();
-    offerEl.text('');
+    offerEl.val('');
     enterOfferOverlay.show();
   });
 
@@ -57,7 +57,7 @@ $(function() {
     };
 
     handleIntro(offerSeed, true, function(offer) {
-      offerEl.text(JSON.stringify(offer));
+      offerEl.val(JSON.stringify(offer));
       overlay.hide();
       showOfferOverlay.show();
       $('.friend-name').val('');
@@ -66,10 +66,10 @@ $(function() {
 
   enterOfferSubmit.click(function() {
     handleOffer(JSON.parse($('.offer-paste').val()), true, function(answer) {
-      answerEl.text(JSON.stringify(answer));
+      answerEl.val(JSON.stringify(answer));
       overlay.hide();
       showAnswerOverlay.show();
-      offerEl.text('');
+      offerEl.val('');
     });
   });
 
@@ -78,7 +78,7 @@ $(function() {
       // alert('You are connected to ' + JSON.stringify(from));
       overlay.hide();
       $('.answer-paste').val('');
-      offerEl.text('');
+      offerEl.val('');
     });
   });
 
