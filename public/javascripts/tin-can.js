@@ -230,7 +230,7 @@ function sendChatMessage(text, remote) {
 function sendIntro(offerer, answerer) {
 	var out_msg = {
 		to: offerer,
-		type: 'text',
+		type: 'req_intro',
 		last_hop: App.name,
 		from: answerer,
 		needs_verification: true
