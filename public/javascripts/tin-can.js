@@ -1,31 +1,12 @@
 var cfg = {"iceServers":[{"url": "stun:stun.l.google.com:19302"}]};
 var peers = {};
-var name = "SnowedInRussia" + Math.floor(Math.random() * 1000);
+App.name = "SnowedInRussia" + Math.floor(Math.random() * 1000);
 var mc = {
 	"mandatory": {
 	"OfferToReceiveAudio":true, 
 	"OfferToReceiveVideo":true
 	}
 };
-
-$("#intro").click(function() {
-	console.log("intro click");
-	var msg = {from: $('#cmd').val()}
-	handleIntro(msg, true);
-});
-
-$("#offer").click(function() {
-	handleOffer(JSON.parse($("#cmd").val()), true);
-});
-
-$("#answer").click(function() {
-	handleAnswer(JSON.parse($("#cmd").val()), true);
-});
-
-$('#name').click(function() {
-	name = $('#cmd').val();
-	$('#cmd').val('Your name is now "' + name + '"');
-});
 
 function send(msg, remote) {
 	console.log("Sending message to " + remote);
@@ -34,6 +15,8 @@ function send(msg, remote) {
 
 function handleDC(e) {
 	console.log("Received open DC event from " + e.target.remote);
+  alert("You are now connected to " + e.target.remote);
+  $('.overlay').hide();
 	e.channel.onmessage = parseMessage;
 	peers[e.target.remote].dc = e.channel;
 }
@@ -48,13 +31,12 @@ function handleIceCandidate(e) {
 	var c = e.target;
 	if (c.print && e.candidate) {
 		c.last_msg.ice.push(e.candidate);
-		$("#cmd").val(JSON.stringify(c.last_msg));
 	}
 	var msg = {
 		type: 'ice',
-		from: name,
+		from: App.name,
 		to: c.remote,
-		last_hop: name,
+		last_hop: App.name,
 		data: e.candidate
 	}
 	send(msg, c.last_hop);
@@ -79,9 +61,9 @@ function parseMessage(msg) {
 	msg = JSON.parse(msg.data);
 	console.log("Parsing a new message: ", msg);
 
-	if (msg.to !== name) {
+	if (msg.to !== App.name) {
 		console.log("Forwarding msg to " + msg.to );
-		msg.last_hop = name;
+		msg.last_hop = App.name;
 		peers[msg.to].dc.send(JSON.stringify(msg));
 		return;
 	}
@@ -107,7 +89,7 @@ function parseMessage(msg) {
 	}
 }
 
-function handleIntro(msg, print) {
+function handleIntro(msg, print, cb) {
 	if (!(msg.from in peers)) {
 		// TODO: Get user verification
 		peers[msg.from] = {
@@ -118,9 +100,9 @@ function handleIntro(msg, print) {
 
 	var out_msg = {
 		'to': msg.from,
-		'from': name,
+		'from': App.name,
 		'type': 'offer',
-		'last_hop': name
+		'last_hop': App.name
 	};
 
 	// Create the datachannel
@@ -129,7 +111,7 @@ function handleIntro(msg, print) {
 	// Attach the media stream if it exists
 	if ("local_stream" in window) {
 		console.log("Adding media stream");
-		local_stream.remote = name;
+		local_stream.remote = App.name;
 		peers[msg.from].conn.addStream(local_stream);
 	}
 
@@ -142,14 +124,14 @@ function handleIntro(msg, print) {
 			peers[msg.from].conn.print = true;
 			out_msg.ice = [];
 			peers[msg.from].conn.last_msg = out_msg;
-			$("#cmd").val(JSON.stringify(out_msg));
+      cb(out_msg);
 		}
 		send(out_msg, msg.last_hop);
 	}, function() {console.warn("fuuuuuu")}, mc);
 }
 
 
-function handleOffer(msg, print) {
+function handleOffer(msg, print, cb) {
 	if (!(msg.from in peers)) {
 		// TODO: Get user verification
 		peers[msg.from] = {
@@ -160,9 +142,9 @@ function handleOffer(msg, print) {
 
 	var out_msg = {
 		'to': msg.from,
-		'from': name,
+		'from': App.name,
 		'type': 'answer',
-		'last_hop': name
+		'last_hop': App.name
 	};
 
 	if ("local_stream" in window) {
@@ -178,7 +160,7 @@ function handleOffer(msg, print) {
 		peers[msg.from].conn.addIceCandidate(new RTCIceCandidate(msg.ice[i]));
 	}
 
-	peers[msg.from].conn.createAnswer(function (answer) {
+	peers[msg.from].conn.createAnswer(function(answer) {
 		out_msg.data = answer;
 		peers[msg.from].conn.setLocalDescription(answer);
 		console.log(JSON.stringify(out_msg));
@@ -186,7 +168,7 @@ function handleOffer(msg, print) {
 			peers[msg.from].conn.print = true;
 			out_msg.ice = [];
 			peers[msg.from].conn.last_msg = out_msg;
-			$("#cmd").val(JSON.stringify(out_msg));
+      cb(out_msg);
 		}
 		send(out_msg, msg.last_hop);
 	}, function() {
@@ -195,7 +177,7 @@ function handleOffer(msg, print) {
 	return 
 }
 
-function handleAnswer(msg, print) {
+function handleAnswer(msg, print, cb) {
 	if (!(msg.from in peers)) {
 		console.warn("Answer from unknown peer... weird");
 		return;
@@ -211,13 +193,11 @@ function handleAnswer(msg, print) {
 			peers[msg.from].conn.addIceCandidate(new RTCIceCandidate(msg.ice[i]));
 		}
 
-		if (print) {
-			$("#cmd").val("Commands can go here");
-		}
 		peers[msg.from].dc.onmessage = parseMessage;
 		console.log("DC to " + msg.from + " connected");
+    cb(msg.from);
 	} catch (err) {
-		console.warn('Data channel is fucked', err);
+		console.warn('Data channel is screwed', err);
 	}
 }
 
@@ -233,8 +213,8 @@ function sendChatMessage(text, remote) {
 	var out_msg = {
 		to: remote,
 		type: 'text',
-		last_hop: name,
-		from: name,
+		last_hop: App.name,
+		from: App.name,
 		data: text
 	};
   try {
@@ -248,7 +228,7 @@ function sendIntro(offerer, answerer) {
 	var out_msg = {
 		to: offerer,
 		type: 'text',
-		last_hop: name,
+		last_hop: App.name,
 		from: answerer,
 		needs_verification: true
 	};

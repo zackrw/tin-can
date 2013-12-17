@@ -17,13 +17,14 @@
               <h2 class="friends-heading text-centered">Contacts</h2>
               <ul class="friends">
               </ul>
-							<textarea id="cmd">Enter command</textarea>
-							<ul>
-								<li id="name" class="cmd_option">Change name</li>
-								<li id="intro" class="cmd_option">Generate offer from peer-name</li>
-								<li id="offer" class="cmd_option">Generate answer from offer</li>
-								<li id="answer" class="cmd_option">Create connection from answer</li>
-							</ul>
+              <ul class="menu-items">
+                  <li class="add-friend-button menu-item text-centered">
+                      + Add a friend
+                  </li>
+                  <li class="change-name-button menu-item text-centered">
+                      Change your name
+                  </li>
+              </ul>
           </div>
           <div class="video-container">
               <video class="vid mini-vid"></video>
@@ -46,6 +47,7 @@
               </div>
           </li>
       </div>
+      <%= include partials/overlays.ejs %>
       <%= include partials/javascripts.ejs %>
   </body>
 </html>

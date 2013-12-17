@@ -8,8 +8,6 @@ $(function() {
   var friendTemplate = $('.friend.template');
   var chatTemplate = $('.chat.template');
 
-
-  // TODO: CONVERT TO A FUNCTION WHICH CAN BE CALLED FOR INDIVIDUAL CHATS.
   friends.on('click', '.friend', function() {
     var conversationId = $(this).attr('data-id');
     if (conversationId !== chatContainer.attr('data-id')) {

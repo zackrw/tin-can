@@ -74,6 +74,54 @@ ul, li
 .row
   height: 30px
 
+.overlay
+  position: fixed
+  overflow: scroll
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  z-index: 3
+  background-color: rgba(0, 0, 0, 0.7)
+
+.form-box
+  width: 440px
+  margin-top: 150px
+  padding: 20px
+  color: #EAEAEA
+  background-color: rgba(0, 0, 0, 0.7);
+  .title
+    font-size: 24px
+  .label
+    width: 100px
+    margin-top: 6px
+    font-size: 20px
+    font-weight: 300
+    text-align: right
+  .value
+    width: 280px
+    margin-left: 20px
+    border: 1px solid #AAA
+    padding: 5px
+    font-size: 20px
+    background-color: #EAEAEA
+  textarea
+    width: 400px
+    height: 200px
+    padding: 10px
+.form-box.wide
+  width: 840px
+  margin-top: 50px
+  .offer
+    margin-bottom: 20px
+  textarea
+    width: 800px
+    height: 400px
+
+
+
 .button
   width: 300px
   height: 50px
@@ -83,4 +131,9 @@ ul, li
   font-size: 18px
   font-weight: 100
   cursor: pointer
+  background-color: rgba(255, 0, 0, 0.3)
+  margin-top: 20px
+
+.button:hover
+  background-color: rgba(255, 0, 0, 0.4)
 
