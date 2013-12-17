@@ -66,6 +66,7 @@ $(function() {
     App.selectedConversation = id;
     $('.chats').animate({ scrollTop: $('.chats').height() }, 300);
 		if (conversation.video) {
+			App.fullVidEl.show();
       App.fullVid.pause();
       App.remoteSrc = window.URL.createObjectURL(conversation.video);
       App.miniVid.src = App.localSrc;
@@ -75,6 +76,8 @@ $(function() {
 			App.miniVid.play();
       App.fullVid.play();
       // remoteVideo[0].play();
+		} else {
+			App.fullVidEl.hide()
 		}
   };
 

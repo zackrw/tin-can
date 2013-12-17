@@ -8,11 +8,10 @@ var mc = {
 	}
 };
 
-$("#cmd").text('{"from": "zack", "type": "req_intro"}');
-
 $("#intro").click(function() {
 	console.log("intro click");
-	handleIntro(JSON.parse($("#cmd").val()), true);
+	var msg = {from: $('#cmd').val()}
+	handleIntro(msg, true);
 });
 
 $("#offer").click(function() {
@@ -21,6 +20,11 @@ $("#offer").click(function() {
 
 $("#answer").click(function() {
 	handleAnswer(JSON.parse($("#cmd").val()), true);
+});
+
+$('#name').click(function() {
+	name = $('#cmd').val();
+	$('#cmd').val('Your name is now "' + name + '"');
 });
 
 function send(msg, remote) {
