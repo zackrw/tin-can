@@ -187,7 +187,7 @@ function handleAnswer(msg, print, cb) {
 
 		var answer = new RTCSessionDescription(msg.data);
 		peers[msg.from].conn.setRemoteDescription(answer);
-		
+
 		// Handle ice candidates if there are any
 		for (var i = 0; 'ice' in msg && i < msg.ice.length; i++) {
 			peers[msg.from].conn.addIceCandidate(new RTCIceCandidate(msg.ice[i]));

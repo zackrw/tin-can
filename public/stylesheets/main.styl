@@ -104,12 +104,14 @@
   width: 180px
   shadow-border()
 
-#cmd
-	width: 100%
-	height: 200px
-
-.cmd_option
-	width: 100%
-	color: white-color
-	background-color: #222
-	text-align: center
+.introduce-friends-overlay
+  .friend-select
+    border-top: 1px solid rgba(255, 255, 255, 0.5)
+  .friend-option
+    padding: 10px 0
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5)
+  .friend-option:hover
+    background-color: rgba(255, 255, 255, 0.15)
+    cursor: pointer
+  .friend-option.selected
+    background-color: rgba(255, 255, 255, 0.15)

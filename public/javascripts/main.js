@@ -1,5 +1,6 @@
 $(function() {
   var addFriendButton = $('.add-friend-button');
+  var introduceFriendsButton = $('.introduce-friends-button');
   var changeNameButton = $('.change-name-button');
 
   var overlay = $('.overlay');
@@ -81,6 +82,50 @@ $(function() {
     });
   });
 
+
+
+  var friendSelect = $('.friend-select');
+  var introduceFriendsOverlay = $('.introduce-friends-overlay');
+  var selected = [];
+  introduceFriendsButton.click(function() {
+    overlay.hide();
+    friendSelect.empty();
+    selected = [];
+    $('.friend').each(function() {
+      if (!$(this).hasClass('template')) {
+        var friendOption = $('<div/>').addClass('friend-option');
+        friendOption.text($(this).text());
+        friendSelect.append(friendOption);
+      }
+    });
+
+    introduceFriendsOverlay.show();
+  });
+
+  friendSelect.on('click', '.friend-option', function() {
+    if (!$(this).hasClass('selected')) {
+      var index = $('.friend-option').index(this);
+      if (selected.length >= 2) {
+        var out = selected.shift();
+        $($('.friend-option')[out.index]).removeClass('selected');
+      }
+      $(this).addClass('selected');
+      selected.push({
+        index: index,
+        name: $(this).text()
+      });
+    }
+  });
+
+  var introduceFriendsSubmit = $('.introduce-friends-submit');
+  introduceFriendsSubmit.click(function() {
+    if (selected.length < 2) {
+      alert('You must have two people to introduce.');
+    }
+    else {
+      sendIntro(selected[0].name, selected[1].name);
+    }
+  });
 
 
 
