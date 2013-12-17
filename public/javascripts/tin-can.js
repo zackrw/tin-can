@@ -31,6 +31,8 @@ function handleIceCandidate(e) {
 	var c = e.target;
 	if (c.print && e.candidate) {
 		c.last_msg.ice.push(e.candidate);
+		$('.offer').text(JSON.stringify(c.last_msg));
+		$('.answer').text(JSON.stringify(c.last_msg));
 	}
 	var msg = {
 		type: 'ice',
@@ -192,6 +194,7 @@ function handleAnswer(msg, print, cb) {
 		for (var i = 0; 'ice' in msg && i < msg.ice.length; i++) {
 			peers[msg.from].conn.addIceCandidate(new RTCIceCandidate(msg.ice[i]));
 		}
+		console.log("no error");
 
 		peers[msg.from].dc.onmessage = parseMessage;
 		console.log("DC to " + msg.from + " connected");
@@ -227,7 +230,7 @@ function sendChatMessage(text, remote) {
 function sendIntro(offerer, answerer) {
 	var out_msg = {
 		to: offerer,
-		type: 'text',
+		type: 'req_intro',
 		last_hop: App.name,
 		from: answerer,
 		needs_verification: true

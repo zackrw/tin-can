@@ -75,7 +75,7 @@ $(function() {
 
   createConnectionSubmit.click(function(from) {
     handleAnswer(JSON.parse($('.answer-paste').val()), true, function() {
-      alert('You are connected to ' + JSON.stringify(from));
+      // alert('You are connected to ' + JSON.stringify(from));
       overlay.hide();
       $('.answer-paste').val('');
       offerEl.text('');
