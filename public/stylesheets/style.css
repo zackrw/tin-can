@@ -251,8 +251,15 @@ li {
   z-index: 1;
 }
 .video-container .mini-vid {
-  width: 400px;
+  width: 260px;
+  margin-top: 20px;
+  margin-left: 20px;
   z-index: 2;
+  -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.7);
+  -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.7);
+  -o-box-shadow: 0 0 10px 0 rgba(0,0,0,0.7);
+  -ms-box-shadow: 0 0 10px 0 rgba(0,0,0,0.7);
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.7);
 }
 .chat-container {
   position: absolute;

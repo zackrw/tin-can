@@ -25,7 +25,8 @@ $(function() {
   if (navigator[gumTypes[gumIndex]]){
     navigator[gumTypes[gumIndex]]({ video: true }, function(localMediaStream) {
 			window.local_stream = localMediaStream;
-      App.fullVid.src = window.URL.createObjectURL(localMediaStream);
+      App.localSrc = window.URL.createObjectURL(localMediaStream);
+      App.fullVid.src = App.localSrc;
       App.fullVid.play();
       App.flip('full');
     }, function (err) {

@@ -11,6 +11,7 @@ $(function() {
   var enterOfferButton = $('.enter-offer-button');
   var createOfferOverlay = $('.create-offer-overlay');
   var enterOfferOverlay = $('.enter-offer-overlay');
+  var offerPaste = $('.offer-paste');
 
   var createOfferSubmit = $('.create-offer-submit');
   var showOfferOverlay = $('.show-offer-overlay');
@@ -45,7 +46,7 @@ $(function() {
   });
   enterOfferButton.click(function() {
     overlay.hide();
-    offerEl.val('');
+    offerPaste.val('');
     enterOfferOverlay.show();
   });
 
@@ -124,6 +125,7 @@ $(function() {
     }
     else {
       sendIntro(selected[0].name, selected[1].name);
+      $('.overlay').fadeOut(400);
     }
   });
 

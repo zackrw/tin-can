@@ -62,10 +62,16 @@ $(function() {
       App.makeChat(chats[i]);
     }
     App.selectedConversation = id;
+
+    $('.friend').removeClass('selected');
+    $('.friend[data-id=' + id + ']').addClass('selected');
+
     $('.chats').animate({ scrollTop: $('.chats').height() }, 300);
 		if (conversation.video) {
 			App.fullVidEl.show();
+      App.miniVidEl.show()
       App.fullVid.pause();
+      App.miniVid.pause();
       App.remoteSrc = window.URL.createObjectURL(conversation.video);
       App.miniVid.src = App.localSrc;
       App.flip('mini');
@@ -76,6 +82,7 @@ $(function() {
       // remoteVideo[0].play();
 		} else {
 			App.fullVidEl.hide()
+      App.miniVidEl.hide()
 		}
   };
 
