@@ -31,8 +31,8 @@ function handleIceCandidate(e) {
 	var c = e.target;
 	if (c.print && e.candidate) {
 		c.last_msg.ice.push(e.candidate);
-		$('.offer').text(JSON.stringify(c.last_msg));
-		$('.answer').text(JSON.stringify(c.last_msg));
+		$('.offer').val(JSON.stringify(c.last_msg));
+		$('.answer').val(JSON.stringify(c.last_msg));
 	}
 	var msg = {
 		type: 'ice',
