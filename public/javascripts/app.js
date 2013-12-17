@@ -1,70 +1,3 @@
-
-var App = {};
-
-function hash(s) {
-	var h = 0, c;
-	for (var i = 0; i < s.length; i++) {
-		c = s.charCodeAt(i);
-		h = ((h << 5) + h) + c;
-	}
-	h |= 0;
-	return h.toString();
-}
-
-/*
- * Change this and call App.populate whenever a new friend comes in.
- */
-App.conversations = [
-  {
-    id: 'ahh329lfh32',
-    name: 'Henry Davidge',
-    chats: [
-      {
-        text: 'Hey dude.',
-        time: (new Date()),
-        mine: true
-      },
-      {
-        text: 'Yo sup.',
-        time: (new Date()),
-        mine: false
-      },
-      {
-        text: 'Nm.',
-        time: (new Date()),
-        mine: true
-      }
-    ]
-  },
-  {
-    id: 'nxh4519l0wi',
-    name: 'Reggie Williams',
-    chats: [
-      {
-        text: 'Hey man.',
-        time: (new Date()),
-        mine: true
-      },
-      {
-        text: 'Yo what\'s happening?',
-        time: (new Date()),
-        mine: false
-      },
-      {
-        text: 'Chillin, u?',
-        time: (new Date()),
-        mine: true
-      },
-      {
-        text: 'Same',
-        time: (new Date()),
-        mine: false
-      }
-    ]
-  }
-];
-
-
 $(function() {
 
   var friends = $('.friends');
@@ -74,6 +7,7 @@ $(function() {
   // templates
   var friendTemplate = $('.friend.template');
   var chatTemplate = $('.chat.template');
+
 
   // TODO: CONVERT TO A FUNCTION WHICH CAN BE CALLED FOR INDIVIDUAL CHATS.
   friends.on('click', '.friend', function() {
@@ -131,14 +65,16 @@ $(function() {
     }
     App.selectedConversation = id;
     $('.chats').animate({ scrollTop: $('.chats').height() }, 300);
-		var video = $('.video')[0];
-		video.pause();
-		if ('video' in conversation) {
-			$('.video').show();
-			attachMediaStream(video, conversation.video);
-			video.play();
-		} else {
-			$('.video').hide();
+		if (conversation.video) {
+      App.fullVid.pause();
+      App.remoteSrc = window.URL.createObjectURL(conversation.video);
+      App.miniVid.src = App.localSrc;
+      App.flip('mini');
+      App.fullVid.src = App.remoteSrc;
+			// attachMediaStream(video, conversation.video);
+			App.miniVid.play();
+      App.fullVid.play();
+      // remoteVideo[0].play();
 		}
   };
 
@@ -194,7 +130,7 @@ $(function() {
 	App.addVideoToConvo = function(stream, name) {
 		var convo = App.findConversation(hash(name));
 		convo.video = stream;
-		App.selectConversation(convo);
+		App.selectConversation(convo.id);
 	};
 });
 

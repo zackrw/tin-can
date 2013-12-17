@@ -8,7 +8,7 @@ var mc = {
 	}
 };
 
-$("#cmd").html("hi");
+$("#cmd").text('{"from": "zack", "type": "req_intro"}');
 
 $("#intro").click(function() {
 	console.log("intro click");
@@ -233,7 +233,11 @@ function sendChatMessage(text, remote) {
 		from: name,
 		data: text
 	};
-	send(out_msg, remote);
+  try {
+    send(out_msg, remote);
+  } catch (e) {
+    console.log('Unable to send message.');
+  }
 }
 
 function sendIntro(offerer, answerer) {
